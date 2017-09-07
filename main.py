@@ -1,12 +1,17 @@
-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import xlrd
 import xlwt
 #open workbook
 xl_workbook = xlrd.open_workbook('RoughtPriceData.xls',formatting_info=True, encoding_override="utf-8")
 #get sheet_names
-sheet_names = xl_workbook.sheet_names() #get sheet_names in workbook
+manufacture = xl_workbook.sheet_names() #get sheet_names in workbook
 product={} #create dictionary for product with fields article, product name, volume and price
 product_catalogue=[] # create product catalogue for products
+#list of optional headers like keys of dictionary
+optional_headers=['uСтрана','uРозничная цена','Артикул','Штрихкод   ''Литраж']
+#list of mandatory headers
+mandatory_headers=['uНаименование','uОбъём','Оптовая цена']
 if "__main__"==__name__:
 
 
@@ -30,4 +35,11 @@ if "__main__"==__name__:
             continue
 
 
+#need to learn how to write to csv(?) from dictionary
+#need a loop through all sheets
+#neeed a loop string by string
+#check if there is a match from dictionary and need to copy them to dictionary and then to csv step by step
+#
+#i need to get table like this:
+#Наименование / #Объём или Литраж / #Производитель /#Оптовая цена / #Рекомендуемая розничная цена / #Категория
 
